@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Angular</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    .center-block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+li{
+    list-style-type: none;
+}
+
+    </style>
+</head>
+<body ng-controller='mainController'>
+
+<div ng-controller="SearchController">
+<div class="row">
+  <div class="col-md-5"></div>
+
+         <header class="col-md-5">
+
+             <div id="Logo">
+                 <h1>Hotel Look</h1>
+             </div>
+
+             <div class="Search" id="Search">
+               <input type="search" placeholder="Поиск"
+                                 ng-keyup="search()"    ng-blur="blur()"
+                                 ng-model="name"/>
+
+             </div>
+         </header>
+         </div>
+  
+    <form>
+        <ul>
+            <li ng-repeat="user in people | filter:name">
+                     <img src="{{user.src}}" alt="" height="200px">
+                    <h3>
+                    {{user.name}}
+                    </h3>
+                    <h6>
+                    {{user.description}}
+                    </h6>
+                    <p>
+                <span class="badge badge-info">Price: {{user.price}} $</span>
+                    <button class="btn btn-success btn-sm"> Buy</button>
+                </p>
+            </li>
+        </ul>
+    </form>
+</div>
+
+
+
+<script src="lib/angular/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
